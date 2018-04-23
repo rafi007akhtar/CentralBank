@@ -1,0 +1,106 @@
+{% extends 'profiles/profile_base_layout.html' %}
+
+{% block headcontent %}
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Cinzel|PT+Serif');
+        
+        body {
+            background-color: floralwhite;
+        }
+        h2 {
+            font-family: "PT Serif";
+        }
+
+        #side_panel
+        {
+            font-size: 16px;
+            font-family: "Titillium Web";
+            background-color: rgb(170, 95, 57);
+            margin-top: -7px;
+            margin-left: -10px;
+            height: 540px;
+            overflow-x: auto;
+            overflow-y: auto;
+        }
+        
+        .side {
+            color: aliceblue;
+        }
+        .side:hover {
+            color: mediumaquamarine;
+        }
+        .warning {
+            color: yellow;
+        }
+        .danger {
+            color: #FF8723;
+            font-weight: 900;
+        }
+        .current {
+            border: 1px solid;
+            padding: 3px;
+        }
+        .curr_bal {
+            font-family: "Cinzel";
+            font-weight: 600;
+        }
+        
+        #side_panel::-webkit-scrollbar {
+            width: 7px;
+        }
+        #side_panel::-webkit-scrollbar:hover {
+            width: 12px;
+        }
+        #side_panel::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+        }
+    </style>
+{% endblock %}
+
+{% block bodycontent %}
+    <section id="welcome_post" class="col-9">
+        <h2>Welcome, <span id="prof_name">Rafi.</span> </h2>
+        <h4 style="font-weight: 300;">It's good to have you here.</h4>   
+        <br>   
+        
+        <form>
+            <h3 style="font-weight: 300;">
+                What do you need the loan for?
+                <input type="text" class="form-control" id="loan_type" required>
+            </h3>
+            <br>
+            <h3 style="font-weight: 300;">
+                Enter the amount of loan needed (₹)
+                <input type="number" class="form-control" id="loan_amt" required>
+            </h3>
+            <small>Please read the <a href="#">Terms and Conditions</a> before requesting for loan</small>. <br>
+            <button class="btn btn-primary" type="button" id="loan_submit">Request loan</button>
+        </form>
+        
+    </section>
+{% endblock %}         
+
+{% block scriptcontent %}
+    <script>
+        $(".current").removeClass("current");
+        $("#loan").addClass("current");
+
+        $("#loan_submit").click(function() {
+            var msg = "Your loan has been requested. You'll be notified if it gets approved in 24 hours. Press OK."
+            
+            if(
+                $("#loan_type").val() =="" || 
+                $("#loan_amt").val() == ""
+            )
+                    msg = "Error: One or more of the required fields is missing";
+                
+            
+            alert(msg);
+        });
+    </script>
+{% endblock %}

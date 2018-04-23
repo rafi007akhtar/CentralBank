@@ -1,0 +1,272 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <title>Central Bank | Admin Page</title>
+        
+        <!-- CSS FRAMEWORKS REQUIRED -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+        <!-- STYLINGS -->
+        <link rel="stylesheet" href="/static/common-styles.css">
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Cinzel|PT+Serif');
+            
+            body {
+                background-color: floralwhite;
+            }
+            h2 {
+                font-family: "PT Serif";
+            }
+            h3, h4 {
+                font-weight: 300;
+            }
+            #delete-acc {
+                border-bottom: 1px solid;
+            }
+
+            #side_panel
+            {
+                font-size: 16px;
+                font-family: "Titillium Web";
+                background-color: rgb(170, 95, 57);
+                margin-top: -7px;
+                margin-left: -10px;
+                height: 540px;
+                overflow-x: auto;
+                overflow-y: auto;
+            }
+            
+            .side {
+                color: aliceblue;
+            }
+            .side:hover {
+                color: mediumaquamarine;
+            }
+            .warning {
+                color: yellow;
+            }
+            .danger {
+                color: #FF8723;
+                font-weight: 900;
+            }
+            .current {
+                border: 1px solid;
+                padding: 3px;
+            }
+            .curr_bal {
+                font-family: "Cinzel";
+                font-weight: 600;
+            }
+            
+            table::-webkit-scrollbar {
+                width: 3px;
+            }
+            table::-webkit-scrollbar:hover {
+                width: 3px;
+            }
+            table::-webkit-scrollbar-track {
+                -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
+                border-radius: 10px;
+            }
+            ::-webkit-scrollbar-thumb {
+                border-radius: 10px;
+                -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+            }
+        </style>
+        
+        <script src='https://www.google.com/recaptcha/api.js'></script>
+        
+    </head>
+    
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: goldenrod">
+            <img src="/static/images/logo.jpg" width="50px">
+            <a class="navbar-brand" href="index.html">&nbsp;Central Bank</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="index.html">Logout</a>
+                </div>
+            </div>
+        </nav>
+        
+        <br> <br> <br>
+        
+        <div class="container-fluid">
+            <section id="welcome_post">
+                <h3>
+                    Welcome, admin Hasnain.
+                </h3>
+                <br>
+                
+                <h4>Basic info</h4>
+                <section class="form-control text-center">
+                    <i class="fa fa-address-card-o"></i> Md Hasnain <br>
+                    <i class="fa fa-envelope"></i> mdhasnain839@gmail.com <br>
+                    <i class="fa fa-tasks"></i> Loan approval / disapproval
+                </section> 
+                <br>
+                
+                <h4>You have the following loan requests.</h4>
+                
+                <table class="table table-responsive table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Account number</th>
+                            <th>Name</th>
+                            <th>Loan reason</th>
+                            <th>Loan required (₹)</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                        <tr>
+                            <td>XXXXXX</td>
+                            <td>Rafi Akhtar</td>
+                            <td>Education loan. Semesters have begun and I need to: (a) buy movie tickets, (b) pay for external HDD (that stores documentaries), (c) waste time.</td>
+                            <td>20000</td>
+                            <td class="row">
+                                <button class="btn btn-success col btn-block">ACCEPT</button>
+                                <button class="btn btn-danger col btn-block">REJECT</button> 
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>XXXXXX</td>
+                            <td>Nizam Ahmed</td>
+                            <td>Travel loan. I recently saw the film, "Ye Jawani Hai Diwani," and that inspired me to travel the world in my youth!</td>
+                            <td>30000</td>
+                            <td class="row">
+                                <button class="btn btn-success col btn-block">ACCEPT</button>
+                                <button class="btn btn-danger col btn-block">REJECT</button> 
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>XXXXXX</td>
+                            <td>Tauseef Kamal</td>
+                            <td>Car loan, for the kick!</td>
+                            <td>20000</td>
+                            <td class="row">
+                                <button class="btn btn-success col btn-block">ACCEPT</button>
+                                <button class="btn btn-danger col btn-block">REJECT</button> 
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>XXXXXX</td>
+                            <td>Bruce Wayne</td>
+                            <td>Wayne Industry collapsed. That maniac, Bane, has held the police force hostage, dethrown me from my own company, and intends to destroy Gotham. I must stop him.</td>
+                            <td>150000</td>
+                            <td class="row">
+                                <button class="btn btn-success col btn-block">ACCEPT</button>
+                                <button class="btn btn-danger col btn-block">REJECT</button> 
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>XXXXXX</td>
+                            <td>T'Challa</td>
+                            <td>Wakanda betrayed me. Find out more in my feature-film, "Black Panther." Trailers are out already.</td>
+                            <td>1500000</td>
+                            <td class="row">
+                                <button class="btn btn-success col btn-block">ACCEPT</button>
+                                <button class="btn btn-danger col btn-block">REJECT</button> 
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>XXXXXX</td>
+                            <td>Tony Stark</td>
+                            <td>Need to build Thanos-Buster. Because why the hell not?</td>
+                            <td>1900000</td>
+                            <td class="row">
+                                <button class="btn btn-success col btn-block">ACCEPT</button>
+                                <button class="btn btn-danger col btn-block">REJECT</button> 
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>XXXXXX</td>
+                            <td>Tywin Lannister</td>
+                            <td>Casterly Rock's gold mines are exhausted, thanks to that pompous drunk King.</td>
+                            <td>500000</td>
+                            <td class="row">
+                                <button class="btn btn-success col btn-block">ACCEPT</button>
+                                <button class="btn btn-danger col btn-block">REJECT</button> 
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <br>
+                
+                <h4 style="color: red" id="delete-acc">Danger zone</h4>
+                <div>
+                    Deletion of account would mean:
+                    <ul>
+                        <li>permanent loss of power and responsibility,</li>
+                        <li>no coming back.</li>
+                    </ul>
+                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#delete" >
+                        Take me to deletion
+                    </button>
+                    
+                    <!-- Modal -->
+                    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="delete" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Confirm deletion</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <form>
+                          <div class="modal-body">
+                              Enter password to confirm deletion
+                              <input type="password" class="form-control" required>
+                              <br>
+                              Prove you are a human
+                              <div class="g-recaptcha" data-sitekey="6Ld_qjQUAAAAADjv2scrqpvXK4OrBZALRJFMANpP"></div>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-danger">Delete my account</button>
+                          </div>
+                      </form>
+                      
+                    </div>
+                  </div>
+                </div>
+                
+                    <br> <br>
+                </div>
+            </section>
+        </div>
+                
+        
+        <!-- FOOTER -->
+        <section class="foot">
+            <div class="text-center">
+                &copy; Website created with <i class="fa fa-heart" style="color: green"></i> by <a href="https://github.com/rafi007akhtar" target="_blank">Md Rafi Akhtar</a>  
+                <br>
+                <i class="fa fa-github"></i> Contribute to this project on <a href="https://github.com/rafi007akhtar/BankingProject" target="_blank">GitHub</a>
+            </div>
+        </section>
+        
+        <!-- JS LIBRARIES REQUIRED -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+    </body>
+</html>

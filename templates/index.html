@@ -1,0 +1,40 @@
+{% extends 'base_layout.html' %}
+
+{% block stylecontent %}
+    <style>
+        h1 {
+            border-bottom: 1px solid;
+        }
+        h4 {
+            font-weight: 400;
+        }
+        a:hover {
+            text-decoration: none;
+        }
+        
+        .foot {
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
+        }
+    </style>
+{% endblock %}
+        
+
+{% block bodycontent %}    
+    <div class="container text-center">
+        <h1>Welcome to Central Bank</h1>
+        <h4><em>We do not breakdown</em></h4>
+    </div>
+    
+    <br>
+    
+    <div class="container">
+        <a href="{% url 'accounts:signup' %}"><button class="btn btn-warning btn-block" id="acc"><i class="fa fa-file-text"></i> Create new account</button></a>
+        <br> 
+        <a href="{% url 'accounts:signin' %}"><button class="btn btn-success btn-block" id="sign_in"><i class="fa fa-sign-in"></i> Sign in</button></a>
+    </div>
+    
+    <br>
+{% endblock %}

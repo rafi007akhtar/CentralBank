@@ -1,0 +1,123 @@
+{% extends 'profiles/profile_base_layout.html' %}
+
+{% block headcontent %}
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Cinzel|PT+Serif');
+        
+        body {
+            background-color: floralwhite;
+        }
+        h2 {
+            font-family: "PT Serif";
+        }
+
+        #side_panel
+        {
+            font-size: 16px;
+            font-family: "Titillium Web";
+            background-color: rgb(170, 95, 57);
+            margin-top: -7px;
+            margin-left: -10px;
+            height: 540px;
+            overflow-x: auto;
+            overflow-y: auto;
+        }
+        
+        .side {
+            color: aliceblue;
+        }
+        .side:hover {
+            color: mediumaquamarine;
+        }
+        .warning {
+            color: yellow;
+        }
+        .danger {
+            color: #FF8723;
+            font-weight: 900;
+        }
+        .current {
+            border: 1px solid;
+            padding: 3px;
+        }
+        .curr_bal {
+            font-family: "Cinzel";
+            font-weight: 600;
+        }
+        .g-recaptcha {
+            width: 50px;
+        }
+        
+        #side_panel::-webkit-scrollbar {
+            width: 7px;
+        }
+        #side_panel::-webkit-scrollbar:hover {
+            width: 12px;
+        }
+        #side_panel::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.3);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+        }
+    </style>
+    
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+{% endblock %}
+
+{% block bodycontent %}
+    <section id="welcome_post" class="col-9">   
+        <h3 style="font-weight: 300;" >Deleting the account means:</h3>
+        <ul type="square">
+            <li>Permanent loss of your account balance (so <a href="{% url 'profiles:money_transfer' %}">transfer your money</a> to a different account first). </li>
+            <li>Permanent loss of your account data, settings, and details.</li>
+        </ul>
+
+        <h3 style="font-weight: 300;" >By pressing the following button, you understand the shortcomings as described in <a href="#">here</a>. </h3>
+        
+        
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#delete" >
+            Take me to deletion
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="delete" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Confirm deletion</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <form>
+                    <div class="modal-body">
+                        Enter password to confirm deletion
+                        <input type="password" class="form-control" required>
+                        <br>
+                        Prove you are a human
+                        <div class="g-recaptcha" data-sitekey="6Ld_qjQUAAAAADjv2scrqpvXK4OrBZALRJFMANpP"></div>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger">Delete my account</button>
+                    </div>
+                </form>
+                
+            </div>
+            </div>
+        </div>
+        
+        
+    </section>
+{% endblock %}
+
+{% block scriptcontent %}
+    <script>
+        $(".current").removeClass("current");
+        $("#delete").addClass("current");
+    </script>
+{% endblock %}
