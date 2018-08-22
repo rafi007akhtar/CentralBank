@@ -13,10 +13,11 @@ def randomGen():
 
 def index(request):
     try:
-        curr_user = Status.objects.get(user_name=request.user)
+        curr_user = Status.objects.get(user_name=request.user) # getting details of current user
     except:
+        # if no details exist (new user), create new details
         curr_user = Status()
-        curr_user.account_number = randomGen()
+        curr_user.account_number = randomGen() # random account number for every new user
         curr_user.balance = 0
         curr_user.user_name = request.user
         curr_user.save()
