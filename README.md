@@ -31,7 +31,7 @@ This is a Banking web-app I created as a part of my Engineering curriculum.
     ```
     If that didn't work, try replacing `python` by `python3` in the above command.
 
-4. Follow the <a href="#Demo">Demo</a> section and use the app as you like.
+4. Follow the <a href="#demo">Demo</a> section and use the app as you like.
 
 ### Disclaimer
 This app represents a  ficitious bank. All transactions, account numbers and account holdings are unreal.
