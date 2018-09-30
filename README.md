@@ -16,11 +16,11 @@ This is a Banking web-app I created as a part of my Engineering curriculum.
 3. Django framework 1.8 or above installed and working.
 
 ## Installation
-1. Clone the current repository.
+1. Open a Terminal, and clone the current repository.
     ```
     git clone https://github.com/rafi007akhtar/CentralBank.git
     ```
-2. Open a terminal and `cd` your way through the root directory.
+2. Enter the root directory.
     ```
     cd CentralBank
     ```
