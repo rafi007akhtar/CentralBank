@@ -21,7 +21,7 @@ def index(request):
         curr_user.balance = 0
         curr_user.user_name = request.user
         curr_user.save()
-    return render(request, "profiles\profile.html", {"curr_user": curr_user})
+    return render(request, "profiles/profile.html", {"curr_user": curr_user})
 
 def money_transfer(request):
     if request.method == "POST":
@@ -48,22 +48,22 @@ def money_transfer(request):
 
             temp.delete() # NOTE: Now deleting the instance for future money transactions
 
-        return redirect("profiles\profile.html")
+        return redirect("profiles/profile.html")
     else:
         form = forms.MoneyTransferForm()
-    return render(request, "profiles\money_transfer.html", {"form": form})
+    return render(request, "profiles/money_transfer.html", {"form": form})
 
 def loan(request):
-    return render(request, "profiles\loans.html")
+    return render(request, "profiles/loans.html")
 
 def ewallet(request):
-    return render(request, "profiles\eWallet.html")
+    return render(request, "profiles/eWallet.html")
 
 def online_pay(request):
-    return render(request, "profiles\online_payment.html")
+    return render(request, "profiles/online_payment.html")
 
 def settings(request):
-    return render(request, "profiles\settings.html")
+    return render(request, "profiles/settings.html")
 
 def edit_details(request):
     if request.method == "POST":
@@ -103,7 +103,7 @@ def edit_details(request):
         else:
             messages.error(request, 'Please correct the error below.')
 
-        return redirect("profiles\edit_details.html")
+        return redirect("profiles/edit_details.html")
     
     else: # GET actions
         try:
@@ -122,7 +122,7 @@ def edit_details(request):
         form3 = PasswordChangeForm(request.user)
 
         dici = {"form1": form1, "form2": form2, "form3": form3}
-        return render(request, "profiles\edit_details.html", dici)
+        return render(request, "profiles/edit_details.html", dici)
 
 def delete_account(request):
-    return render(request, "profiles\delete_account.html")
+    return render(request, "profiles/delete_account.html")
