@@ -22,7 +22,7 @@ def sign_in(request):
             return redirect("profiles:account_status")
     else:
         form = AuthenticationForm()
-        return render(request, "accounts\sign_in.html", {"form": form})
+        return render(request, "accounts/sign_in.html", {"form": form})
 
 def logout_view(request):
     # Logout the user if he hits the logout submit button
