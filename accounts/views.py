@@ -11,7 +11,7 @@ def register(request):
             return redirect("accounts:signin")
     else:
         form = UserCreationForm()
-    return render(request, "accounts\create_account.html", {"form": form})
+    return render(request, "accounts/create_account.html", {"form": form})
 
 def sign_in(request):
     if request.method == "POST":
