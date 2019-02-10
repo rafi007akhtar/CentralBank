@@ -12,7 +12,7 @@ This is a Banking web-app I created as a part of my Engineering curriculum.
 
 ## Prerequisites
 1. A Terminal (preferred) or a CMD
-2. Python 3.4 or above installed. (Windows users might need to ![add it to path](https://superuser.com/questions/143119/how-do-i-add-python-to-the-windows-path).)
+2. Python 3.4 or above installed. (Windows users might need to [add it to path](https://superuser.com/questions/143119/how-do-i-add-python-to-the-windows-path).)
 3. Django framework 1.8 or above installed and working.
 
 ## Installation
